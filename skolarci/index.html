@@ -1,0 +1,115 @@
+<?php
+  session_start(); // Start a session
+
+  // Get the current session ID
+  $session_id = session_id();
+
+  // Output the session ID
+  echo "The current session ID is: " . $session_id;
+?>
+<!doctype html>
+<html>
+<head>
+    <title>Занимљива математика</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="PostaviBrojeve()">
+<h1>Занимљива математика</h1>
+<p><b>Учимо да множимо</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p></p>
+<p>Успешност:
+    <button type="button" style="width: 300px;height: 30px; background-color:orange;margin: 10px;border-radius: 10px;color: Blue;
+    font-size: 25px;text-align: center;" id="usp">&nbsp;</button></p>
+
+<button type="button" class="custom-button" id="bx">&nbsp;</button>
+<button type="button" class="custom-button" id="bz">&nbsp;</button>
+<button type="button" class="custom-button" id="by">&nbsp;</button>
+<button type="button" class="custom-button" id="brjednako">=</button>
+<input type="text" class="custom-button" id="brr" >
+
+<button style="width: 150px;height: 50px; background-color:orange;margin: 10px;border-radius: 10px;color: Blue;
+        font-size: 35px;" onclick="Provera()">Унеси</button>
+
+<p></p>
+<button type="button" style="width: 200px;height: 50px; background-color:orange;margin: 10px;border-radius: 10px;color: Blue;
+font-size: 35px;text-align: center;" id="br">&nbsp;</button>
+<button type="button" hidden class="custom-button" id="brhiden"></button>
+
+<!-- <button type="button" style="width: 150px;height: 50px; background-color:orange;margin: 10px;border-radius: 10px;color: Blue;
+           font-size: 35px;" id="ds" enabled onclick = "PostaviBrojeve()">Старт</button> -->
+<button type="button" style="width: 150px;height: 50px; background-color:orange;margin: 10px;border-radius: 10px;color: Blue;
+     font-size: 35px;" id="ds1" onclick = "PuniBazu()">Крај</button>
+
+<script>
+
+  window.onbeforeunload = confirmExit;
+  function confirmExit()
+  {
+      return "Хоћу да изађем.  Are you sure you want to exit this page?";
+  }
+
+  const Uspeh=new Array(2);
+  Uspeh[0]=0;
+  Uspeh[1]=0;
+
+     function PostaviBrojeve() {
+
+         var x1 = Math.floor(Math.random() * (10 - 0 )) + 1;
+         var y1 = Math.floor(Math.random() * (10 - 0 + 1)) + 1;  // samo da dobije na vremenu
+         var y1 = Math.floor(Math.random() * (10 - 0 )) + 1;
+         const prazno=(/\s+/g, '');
+         znak="*"
+         resenje=x1*y1
+
+         document.getElementById("bx").textContent = x1;
+         document.getElementById("by").textContent = y1;
+
+
+         document.getElementById("bz").textContent = znak;
+
+         document.getElementById("brhiden").textContent = resenje;
+         document.getElementById("brr").value= null;
+
+         //document.getElementById('ds').style.visibility= 'hidden';
+
+ }
+
+ async function Provera() {
+
+         uneto = document.getElementById("brr").value;
+         res = document.getElementById("brhiden").textContent;
+         if (res == uneto) {
+             document.getElementById("br").textContent = "Тачно";
+             document.getElementById("br").style.bgcolor = "orange";
+             document.getElementById("br").style.color = "blue";
+             Uspeh[0] = Uspeh[0] + 1;
+             Uspeh[1] = Uspeh[1] + 1;
+             let u=(100*Uspeh[0]/Uspeh[1]).toFixed(2)
+             let us1=Uspeh[0].toString()+"/"+Uspeh[1].toString()+"   "+u.toString()+" %"
+             document.getElementById("usp").textContent = us1;
+
+         } else {
+             document.getElementById("br").style.bgcolor = "blue";
+             document.getElementById("br").style.color = "purple";
+             document.getElementById("br").textContent = "Погрешно";
+             Uspeh[1] = Uspeh[1] + 1;
+             let u=(100*Uspeh[0]/Uspeh[1]).toFixed(2)
+             let us1=Uspeh[0].toString()+"/"+Uspeh[1].toString()+"   "+u.toString()+" %"
+             document.getElementById("usp").textContent = us1;
+
+     }
+
+     await new Promise(r => setTimeout(r, 1200));
+     PostaviBrojeve();
+     Fokus();
+     
+ }
+
+ function Fokus() {
+                document.getElementById("brr").focus();
+
+ }
+
+</script>
+</body>
+</html>
