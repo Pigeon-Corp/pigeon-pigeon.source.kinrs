@@ -1,0 +1,79 @@
+body{
+    background-image: url('pexels-black-ice-1314540.jpg');
+}
+
+html {
+  font-family: sans-serif;
+}
+
+
+
+.custom-button {
+  width: 50px;
+  height: 50px;
+  background-color: orange;
+  margin: 10px;
+  border-radius: 10px;
+  color: Blue;
+  font-size: 35px;
+  text-align: center;
+  font-weight:bold;
+}
+
+
+.brojevi {
+    width: 50px;
+  height: 50px;
+  background-color: orange;
+  margin: 10px;
+  border-radius: 10px; 
+  color: Blue;
+ font-size: 35px; 
+}
+
+div {
+  width: 650px;
+  height: 20px;
+  background-color: orange;
+  margin: 10px;
+  border-radius: 10px;
+}body{
+    background-image: url('pexels-black-ice-1314540.jpg');
+}
+
+html {
+  font-family: sans-serif;
+}
+
+
+
+.custom-button {
+  width: 50px;
+  height: 50px;
+  background-color: orange;
+  margin: 10px;
+  border-radius: 10px;
+  color: Blue;
+  font-size: 35px;
+  text-align: center;
+  font-weight:bold;
+}
+
+
+.brojevi {
+    width: 50px;
+  height: 50px;
+  background-color: orange;
+  margin: 10px;
+  border-radius: 10px; 
+  color: Blue;
+ font-size: 35px; 
+}
+
+div {
+  width: 650px;
+  height: 20px;
+  background-color: orange;
+  margin: 10px;
+  border-radius: 10px;
+}
